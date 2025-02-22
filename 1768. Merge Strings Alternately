@@ -1,0 +1,14 @@
+Problem: https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75
+Sol:
+ impl Solution {
+    pub fn merge_alternately(w1: String, w2: String) -> String {
+        let mut result = String::with_capacity(w1.len() + w2.len());
+        for (c1, c2) in w1.chars().zip(w2.chars()) {
+            result.push(c1);
+            result.push(c2);
+        }
+        result.extend(w1.chars().skip(w2.len()));
+        result.extend(w2.chars().skip(w1.len()));
+        result
+    }
+}
