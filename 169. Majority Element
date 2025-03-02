@@ -1,0 +1,23 @@
+https://leetcode.com/problems/majority-element/submissions/1559796591/?envType=study-plan-v2&envId=top-interview-150
+
+Sol:
+
+impl Solution {
+    pub fn majority_element(nums: Vec<i32>) -> i32 {
+        let mut candidate = nums[0];  // Store the current majority candidate
+        let mut count = 0;            // Count of the candidate element
+
+        for &num in &nums {           // Iterate over each element in nums
+            if count == 0 {           // If count becomes zero, update candidate
+                candidate = num;
+            }
+            if num == candidate {     // If the current number is the candidate, increment count
+                count += 1;
+            } else {                  // Otherwise, decrement count
+                count -= 1;
+            }
+        }
+
+        candidate                      // Return the majority element
+    }
+}
